@@ -1,0 +1,32 @@
+package TestCases;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import Utility_Methods.BaseTest;
+import WebPages.Calender_Page;
+import WebPages.HomePage;
+import WebPages.Login_Page;
+import WebPages.LogoutPage;
+
+public class TC05 extends BaseTest {
+	@Test
+	public void organization() {
+		Login_Page login=new Login_Page(driver);
+		login.enter_username();
+		login.enter_password();
+		login.click_loginbutton();
+		HomePage homepage=new HomePage(driver);
+		homepage.click_Organization();
+		homepage.click_Homebutton();
+		homepage.click_calender(driver);
+		Calender_Page calenderpage=new Calender_Page(driver);
+		calenderpage.click_calenderWidget();
+		calenderpage.change_date();
+		homepage.moveto_userIcon(driver);
+		LogoutPage logout=new LogoutPage(driver);
+		logout.click_signOut();
+		
+	}
+
+}
